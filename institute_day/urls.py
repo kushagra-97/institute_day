@@ -15,10 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+<<<<<<< HEAD
 from django.views.generic import RedirectView
 from django.conf.urls import include
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('day.urls')),
+=======
+
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+>>>>>>> 113fb31a7721130051904139067217db496987d0
 ]

@@ -1,4 +1,5 @@
-from django.shortcuts import render, render_to_response, HttpResponse, redirect
+from django.shortcuts import render
+from django.shortcuts import render_to_response, HttpResponse, redirect
 from django.http import Http404,JsonResponse,HttpResponseBadRequest
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views import generic
@@ -25,6 +26,6 @@ def elements(request):
 
 def generic(request):
     return render(request, 'generic.html')        
-    
+
 def registration(request):
     return render(request, 'registration.html')        

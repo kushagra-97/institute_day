@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'day',
+    'social_django',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -64,6 +65,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',  # <- Here
+                'social_django.context_processors.login_redirect', # <- Here
             ],
         },
     },
@@ -120,11 +123,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-<<<<<<< HEAD
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
+
 
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
-=======
->>>>>>> 113fb31a7721130051904139067217db496987d0
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='684711889760-qubuctu4sl98ffimth87roqouclcoi52.apps.googleusercontent.com'  #Paste CLient Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '3lY65_Xly2QZquRZY7tXKVOm' #Paste Secret Key

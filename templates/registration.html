@@ -1,0 +1,105 @@
+{% extends "header.html" %}
+{% load staticfiles %}
+{% block content %}
+<section id="main">
+				<div class="inner">
+						<section id="register1">
+							<header>
+						<h1>Registration</h1>
+					</header>
+
+							<form action="#" role="form" id="reg-form">
+								<h5 id="error"></h5>
+								{% csrf_token %}
+								<div class="row uniform 50%">
+									<div class="6u 12u$(xsmall)">
+										<input type="text" name="name" id="name" value="" placeholder="Name" />
+									</div>
+									<div class="6u 12u$(xsmall)">
+										<input type="text" name="mentor" id="mentor" value="" placeholder="Mentor" />
+									</div>
+									<div class="6u 12u$(xsmall)">
+										<input type="text" name="title" id="title" value="" placeholder="Title" />
+									</div>
+									<div class="12u$">
+										<div class="select-wrapper">
+											<select name="category" id="category">
+												<option value="">- Department -</option>
+												<option value="Ceramic Engineering">Ceramic Engineering</option>
+												<option value="Computer Science &amp; Engineering">Computer Science &amp; Engineering</option>
+												<option value="Civil Engineering">Civil Engineering</option>
+												<option value="Electrical Engineering">Electrical Engineering</option>
+												<option value="Electronics Engineering">Electronics Engineering</option>
+												<option value="Mechanical Engineering">Mechanical Engineering</option>
+												<option value="Metallurgical Engineering">Metallurgical Engineering</option>
+												<option value="Mining Engineering">Mining Engineering</option>
+												<option value="Bioengineering">Bioengineering</option>
+												<option value="Materials Science &amp; Technology">Materials Science &amp; Technology</option>
+												<option value="Pharmaceutical Engineering &amp; Technology">Pharmaceutical Engineering &amp; Technology</option>
+												<option value="Industrial Chemistry">Industrial Chemistry</option>
+												<option value="Mathematics &amp; Computing">Mathematics &amp; Computing</option>
+												<option value="Engineering Physics">Engineering Physics</option>
+												<option value="Biochemical Engineering">Biochemical Engineering</option>									
+											</select>
+										</div>
+									</div>
+									<div class="6u 12u$(xsmall)">
+										<input type="text" name="Subarea" id="subarea" value="" placeholder="Subarea" />
+									</div>
+									<div class="12u$">
+										<textarea name="Abstract" id="abstract" placeholder="Abstract" rows="6"></textarea>
+									</div>
+									<div class="12u$">
+										<ul class="actions">
+											<li><input type="submit" value="Register" class="special" onclick="sub()" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+						</section>
+
+						<!-- Table -->
+						<section>
+							<div class="table-wrapper" style="display: none;" id="tabledata">
+								<table class="alt">
+									<thead>
+										<tr>
+											<th><b>Info</b></th>
+											<th><b>Particulars</b></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><b>Name</b></td>
+											<td id="namei"></td>
+										</tr>
+										<tr>
+											<td><b>Mentor</b></td>
+											<td id="mentori"></td>
+										</tr>
+										<tr>
+											<td><b>Title</b></td>
+											<td id="titlei"></td>
+										</tr>
+										<tr>
+											<td><b>Department</b></td>
+											<td id="departmenti"></td>
+										</tr>
+										<tr>
+											<td><b>Subarea</b></td>
+											<td id="subareai"></td>
+										</tr>
+										<tr>
+											<td><b>Abstract</b></td>
+											<td id="abstracti"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<input type="reset" value="Edit" onclick="changer()" style="display: none;" id="edit" />				
+							<input type="reset" value="Print" id="print" style="display: none;" />
+						</section>
+				</div>
+			</section>
+{% endblock %}

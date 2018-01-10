@@ -50,6 +50,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'institute_day.urls'
@@ -85,6 +86,14 @@ DATABASES = {
     }
 }
 
+
+AUTHENTICATION_BACKENDS = (
+ # 'social_core.backends.open_id.OpenIdAuth',
+ # 'social_core.backends.google.GoogleOpenId',
+ 'social_core.backends.google.GoogleOAuth2',
+
+ 'django.contrib.auth.backends.ModelBackend',
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -125,7 +134,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
 
-
+LOGIN_REDIRECT_URL='registration'
+LOGIN_URL='registration'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),

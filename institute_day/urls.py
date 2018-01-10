@@ -15,12 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-
+from django.contrib.auth import views
 from django.views.generic import RedirectView
 from django.conf.urls import include
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),    
+    url(r'^api/v1/', include('social_django.urls', namespace='social')),
+     url(r'^logout/$', views.logout, name='logout'),
     url(r'^', include('day.urls')),
 
 ]

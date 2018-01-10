@@ -12,8 +12,9 @@ from django.utils.text import slugify
 class Students(models.Model):
     # user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
     user = models.OneToOneField(User)
-    name = models.CharField(max_length=30,null=True)
+   
     title = models.CharField(max_length=30,null=True)
+    
     mentor = models.CharField(max_length=30,null=True)
     department = models.CharField(max_length=30,null=True)
     subarea = models.CharField(max_length=120,null=True)

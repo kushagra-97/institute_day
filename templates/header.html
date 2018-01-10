@@ -49,27 +49,40 @@
 
 	</body>		
 	<script type="text/javascript">
+		function ajax_get(first,URL){
+				  return $.ajax({
+				    url: URL,                 // the endpoint
+				    type: "POST",             // http method
+				    data: first,              // data sent with the post request
+				  });
+				}
 		$("#reg-form").submit(function(e){
   		  e.preventDefault();
  		});
 		function sub(){
-			var name = document.getElementById("name").value;
+			var first_name = document.getElementById("first_name").value;
 			var mentor = document.getElementById("mentor").value;
+			var last_name = document.getElementById("last_name").value;
 			var title = document.getElementById("title").value;
 			var subarea = document.getElementById("subarea").value;
 			var abstract = document.getElementById("abstract").value;
 			var department = $('#category option:selected').val();	
-			if(name.length === 0 || mentor.length === 0 || title.length === 0 ||subarea.length === 0 ||abstract.length === 0){
+			if(last_name.length === 0 || first_name.length === 0 || mentor.length === 0 || title.length === 0 ||subarea.length === 0 ||abstract.length === 0){
 				$("#error").text("Please fill all the fields.");
+				//console.log("hajhdakj");
 				return false;
 			}
 			else if($("#category").val() === ""){
 				$("#error").text("Please select a department.");
+				//console.log("ass");
 				return false;
 			}
 			else{
+				var data = {"first_name":first_name,"mentor":mentor,"last_name":last_name,"title":title,"subarea":subarea,"abstract":abstract,"department":department};
+				console.log(data);
+				// var obj = JSON.parse(data);
 				$("#error").text("");
-				$("#namei").text(name);
+				$("#namei").text(first_name+" "+last_name);
 				$("#mentori").text(mentor);
 				$("#titlei").text(title);
 				$("#subareai").text(subarea);
@@ -79,7 +92,22 @@
 				$("#print").show();
 				$("#register1").hide();
 				$("#tabledata").show();
+				// console.log(obj);
+				ajax_get(data,"/register/").done(function(response){
+     			 console.log(response);
+      			if (response['status'] == 1)
+			      {
+			        alert("Successfully Done!!");
+			      
+			      }
+			      else
+			      {
+			      	alert("It didn't seem to work!!");
+			      }
+			    });
+
 				return true;
+
 			}
 		}
 		function changer(){

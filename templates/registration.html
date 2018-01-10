@@ -13,17 +13,20 @@
 								{% csrf_token %}
 								<div class="row uniform 50%">
 									<div class="6u 12u$(xsmall)">
-										<input type="text" name="name" id="name" value="" placeholder="Name" />
+										<input type="text" name="first name" id="first_name"  placeholder="First Name" value="" />
 									</div>
 									<div class="6u 12u$(xsmall)">
-										<input type="text" name="mentor" id="mentor" value="" placeholder="Mentor" />
+										<input type="text" name="last name" id="last_name"  placeholder="Last Name" value="" />
+									</div>
+									<div class="6u 12u$(xsmall)">
+										<input type="text" name="mentor" id="mentor" placeholder="Mentor" value="" />
 									</div>
 									<div class="6u 12u$(xsmall)">
 										<input type="text" name="title" id="title" value="" placeholder="Title" />
 									</div>
 									<div class="12u$">
 										<div class="select-wrapper">
-											<select name="category" id="category">
+											<select name="category" id="category" value={{department}}>
 												<option value="">- Department -</option>
 												<option value="Ceramic Engineering">Ceramic Engineering</option>
 												<option value="Computer Science &amp; Engineering">Computer Science &amp; Engineering</option>
@@ -46,8 +49,9 @@
 									<div class="6u 12u$(xsmall)">
 										<input type="text" name="Subarea" id="subarea" value="" placeholder="Subarea" />
 									</div>
+
 									<div class="12u$">
-										<textarea name="Abstract" id="abstract" placeholder="Abstract" rows="6"></textarea>
+										<textarea name="Abstract" id="abstract" placeholder="Abstract" rows="6" value=""></textarea>
 									</div>
 									<div class="12u$">
 										<ul class="actions">
